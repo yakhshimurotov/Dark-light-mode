@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode light</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="background">
+      <header>
+          <img src="./img/IMG_20240315_004400.jpg" alt="myImg">
+          <h1>Welcome to my Web site</h1>
+          <div class="cursor-box" onmouseover="PlaySound('mySound')" onmouseout="StopSound('mySound')">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quo
+            incidunt iste. Enim provident repellat soluta dolorum, id esse.
+            Laborum.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio dignissimos aperiam natus, perspiciatis, itaque quo ullam reiciendis atque nihil, vero voluptate rem unde alias. 
+            Consequuntur aut, ab corporis dolor illo accusantium
+            repellat! Iure maxime, tenetur sint animi qui deserunt necessitatibus soluta. Recusandae, accusantium blanditiis excepturi iusto asperiores eaque quibusdam quis.
+          </p>        
+          <div class="cursor"></div>
+        </div>
+          <div class="dark">
+            <div class="button" onclick="play()"></div>
+            <div class="speed" onclick="play()"></div>
+            <p>Change background color</p>
+          </div>
+         
+      </header>
+    </div>
+    <audio id='mySound' src='./music/big-bubble-2-169074.mp3'> </audio>
+    <audio id="audio" src="./music/shooting-sound-fx-159024.mp3"></audio>
+    <script>
+      const cursor = document.querySelector(".cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.pageX + "px";
+        cursor.style.top = e.pageY + "px";
+      });
+
+      function PlaySound(soundobj) {
+       let thissound = document.getElementById(soundobj);
+       thissound.play();
+      }
+
+      function StopSound(soundobj) {
+       let thissound = document.getElementById(soundobj);
+       thissound.pause();
+       thissound.currentTime = 0;
+      }
+
+      function play() {
+        let audio = document.getElementById("audio");
+        audio.play();
+      };
+
+      const DarkTheme = () => {
+        const button = document.querySelector(".button");
+        const body = document.querySelector("body");
+        const speed = document.querySelector(".speed");
+        button.addEventListener("click", () => {
+          speed.classList.toggle("mouve");
+          body.classList.toggle("darktheme");
+        });
+        speed.addEventListener("click", () => {
+          speed.classList.toggle("mouve");
+          body.classList.toggle("darktheme");
+        });
+      };
+      DarkTheme();
+    </script>
+  </body>
+</html>

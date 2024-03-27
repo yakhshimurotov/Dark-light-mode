@@ -1,0 +1,136 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+img {
+    position: relative;
+    width: 130px;
+    border-radius: 50px;
+}
+
+body {
+    background-color: burlywood;
+    transition: 0.5s linear;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    text-align: center;
+}
+
+header p {
+    width: 400px;
+    text-align: center;
+}
+
+.dark {
+    display: flex;
+    align-items: center;
+    gap: 4.5em;
+}
+
+.dark .button {
+    position: absolute;
+    width: 70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    cursor: pointer;
+    padding: 5px;
+  
+}
+
+.dark .speed {
+    position: relative;
+    margin: 2px;
+    width: 40px;
+    height: 25px;
+    border-radius: 50px;
+    background-color: cadetblue;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.dark p {
+    width: 100%;
+}
+
+.dark .mouve {
+    transform: translateX(40px);
+    transition: 0.3s ease-in;
+    background-color: #444;
+}
+
+.darktheme {
+    background-color: #222;
+    color: #fff;
+    transition: 0.5s linear;
+}
+
+.cursor {
+    position: fixed;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: 0.1s;
+    mix-blend-mode: difference;
+    z-index: 1000;
+}
+
+@keyframes cursor {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(5);
+    }
+    70% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(4);
+    }
+}
+
+.cursor-box:hover .cursor {
+    transform: scale(4);
+    background-color: #fff; 
+    animation: cursor 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        background-color: burlywood;
+    }
+   .cursor {
+     display: none;
+   }
+
+   header {
+     gap: 20px;
+   }
+
+   header h1 {
+     width: 250px;
+  }
+
+   header p {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+  }
+
+}
+
